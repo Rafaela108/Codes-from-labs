@@ -1,0 +1,44 @@
+
+
+
+touch automation_files.sh
+
+
+nano automation_files.sh
+
+
+#!/bin/bash
+
+yourName="Rafaela"
+file="last_number.txt"
+
+if [ -f "$file" ]; then
+  startNumber=$(<"$file")
+else
+  startNumber=1
+fi
+
+for ((i = startNumber; i <= startNumber + 24; i++)); do
+  touch "${yourName}${i}"
+done
+
+echo "Created files: ${yourName}${startNumber} to ${yourName}$((startNumber + 24))"
+echo $((startNumber + 25)) > "$file"
+
+CTRL+O   ENTER   CTRL+X
+
+
+chmod +x automation_files.sh
+
+./automation_files.sh
+
+ls -l
+
+
+touch automation_files.sh
+
+
+nano automation_files.sh
+
+----------------------------------------------------------
+
